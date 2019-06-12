@@ -2,7 +2,6 @@ const mapCenter = [44.95, -93.31]
 const mapTiles = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 const mapZoom = 14
 const fetchButton = document.getElementById("fetch")
-const precinct = 5
 
 
 const myMap = L.map("mapid").setView(mapCenter, mapZoom)
@@ -20,7 +19,8 @@ const request = async () => {
 
 function drawMarkers(d) {
   const points = d.features
-  points.map(e => placeMarker(e.geometry.coordinates))
+  const pointsFiltered = filterPrecinct(points)
+  pointsFiltered.map(e => placeMarker(e.geometry.coordinates))
 }
 
 function placeMarker(coordinates) {
@@ -29,6 +29,12 @@ function placeMarker(coordinates) {
   } else {
     L.marker([coordinates[1], coordinates[0]]).addTo(myMap)
   }
+}
+
+function filterPrecinct(incidents) {
+  const precinct = "05"
+  const filtered = incidents.filter(i => i.properties.Precinct === precinct)
+  return filtered
 }
 
 request().then(e => drawMarkers(e))
