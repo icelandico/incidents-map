@@ -1,8 +1,6 @@
 const mapCenter = [44.95, -93.31]
 const mapTiles = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-const mapZoom = 14
-const fetchButton = document.getElementById("fetch")
-
+const mapZoom = 12
 
 const myMap = L.map("mapid").setView(mapCenter, mapZoom)
 
