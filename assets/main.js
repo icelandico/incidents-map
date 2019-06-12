@@ -23,13 +23,21 @@ function drawMarkers(d) {
 
 function placeMarker(coordinates, properties) {
   const info = properties.Description
-  const date = properties.ReportedDate
-  const content = `<p>Description: ${info}</p><p>Date: ${date}</p>`
+  const date = formatDate(properties.ReportedDate) || "Unknown"
+  console.log(date)
+  const content = `<p>Description: ${info}</p><p>Reported date: ${date}</p>`
   if (coordinates.includes(null, 0)) {
     return null
   } else {
     L.marker([coordinates[1], coordinates[0]]).bindPopup(content).openPopup().addTo(myMap)
   }
+}
+
+// Return date in format { year, month, day } or YYYY-MM-DD
+function formatDate(text) {
+  const getDate = text.split("T")[0]
+  // const date = getDate.split("-")
+  return getDate//{ year: date[0], month: date[1], day: date[2] }
 }
 
 function filterPrecinct(incidents) {
