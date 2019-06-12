@@ -24,7 +24,6 @@ function drawMarkers(d) {
 function placeMarker(coordinates, properties) {
   const info = properties.Description
   const date = formatDate(properties.ReportedDate) || "Unknown"
-  console.log(date)
   const content = `<p>Description: ${info}</p><p>Reported date: ${date}</p>`
   if (coordinates.includes(null, 0)) {
     return null
