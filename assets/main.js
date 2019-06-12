@@ -18,7 +18,9 @@ const request = async () => {
 function drawMarkers(d) {
   const points = d.features
   const pointsFiltered = filterPrecinct(points)
-  pointsFiltered.map(e => placeMarker(e.geometry.coordinates, e.properties))
+  const coordinatesOnly = pointsFiltered.map(el => [el.geometry.coordinates[1], el.geometry.coordinates[0]])
+  generateHeatmap(coordinatesOnly)
+  // pointsFiltered.map(e => placeMarker(e.geometry.coordinates, e.properties))
 }
 
 function placeMarker(coordinates, properties) {
@@ -38,6 +40,12 @@ function formatDate(text) {
   // const date = getDate.split("-")
   return getDate//{ year: date[0], month: date[1], day: date[2] }
 }
+
+
+function generateHeatmap(data) {
+  L.heatLayer(data, {radius: 20}).addTo(myMap)
+}
+
 
 function filterPrecinct(incidents) {
   const precinct = "05"
