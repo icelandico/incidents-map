@@ -2,6 +2,14 @@ html, body {
   height: 100vh;
   margin: 0;
 }
+
 #mapid {
   height: 100%;
+}
+
+#heatmap {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 9999;
 }

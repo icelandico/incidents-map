@@ -1,6 +1,6 @@
-const mapCenter = [44.95, -93.31]
+const mapCenter = [44.94, -93.31]
 const mapTiles = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-const mapZoom = 12
+const mapZoom = 13
 
 const myMap = L.map("mapid").setView(mapCenter, mapZoom)
 
