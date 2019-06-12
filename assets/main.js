@@ -18,14 +18,17 @@ const request = async () => {
 function drawMarkers(d) {
   const points = d.features
   const pointsFiltered = filterPrecinct(points)
-  pointsFiltered.map(e => placeMarker(e.geometry.coordinates))
+  pointsFiltered.map(e => placeMarker(e.geometry.coordinates, e.properties))
 }
 
-function placeMarker(coordinates) {
+function placeMarker(coordinates, properties) {
+  const info = properties.Description
+  const date = properties.ReportedDate
+  const content = `<p>Description: ${info}</p><p>Date: ${date}</p>`
   if (coordinates.includes(null, 0)) {
     return null
   } else {
-    L.marker([coordinates[1], coordinates[0]]).addTo(myMap)
+    L.marker([coordinates[1], coordinates[0]]).bindPopup(content).openPopup().addTo(myMap)
   }
 }
 
