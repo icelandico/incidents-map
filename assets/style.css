@@ -7,9 +7,17 @@ html, body {
   height: 100%;
 }
 
-#heatmap {
-  position: fixed;
-  top: 2rem;
-  right: 2rem;
+label {
+  display: block;
+}
+
+.control-panel {
+  padding: 1rem;
+  background: #fff;
+  height: 200px;
+  width: 150px;
   z-index: 9999;
+  position: fixed;
+  top: 6rem;
+  left: 2rem;
 }

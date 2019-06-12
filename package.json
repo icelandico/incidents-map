@@ -9,6 +9,7 @@
   "author": "Michal M.",
   "license": "ISC",
   "dependencies": {
-    "leaflet": "^1.5.1"
+    "leaflet": "^1.5.1",
+    "surge": "^0.21.3"
   }
 }
