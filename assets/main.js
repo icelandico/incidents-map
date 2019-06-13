@@ -43,7 +43,7 @@ function formatDate(text) {
 
 
 function generateHeatmap(data) {
-  L.heatLayer(data, {radius: 20}).addTo(myMap)
+  L.heatLayer(data, { radius: 20 }).addTo(myMap)
 }
 
 
@@ -54,3 +54,9 @@ function filterPrecinct(incidents) {
 }
 
 request().then(e => drawMarkers(e))
+
+const input = document.querySelectorAll("label")
+
+input.forEach(el => el.addEventListener("click", function () {
+  console.log(el.getAttribute("for"))
+}))

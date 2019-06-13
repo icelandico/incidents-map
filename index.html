@@ -19,22 +19,22 @@
   <div id="mapid"></div>
   <div class="control-panel">
     <div class="control-panel-years">
-      <p>Choose layer</p>
-      <label>
-        <input type="radio" name="year" value="2018" class="custom-input">2018</input>
-      </label>
-      <label>
-        <input type="radio" name="year" value="2019" checked class="custom-input">2019</input>
-      </label>
+      <p class="option-title">Choose layer</p>
+
+      <input id="2018" type="radio" name="year" value="2018" class="custom-input">
+      <label for="2018">2018</label>
+
+      <input id="2019" type="radio" name="year" value="2019" checked class="custom-input">
+      <label for="2019">2019</label>
     </div>
     <div class="control-panel-layers">
-      <p>Choose data type</p>
-      <label>
-        <input type="radio" name="layer" value="Markers" checked class="custom-input">Markers</input>
-      </label>
-      <label>
-        <input type="radio" name="layer" value="Heatmap" class="custom-input">Heatmap</input>
-      </label>
+      <p class="option-title">Choose data type</p>
+
+      <input id="markers" type="radio" name="layer" value="Markers" checked class="custom-input"></input>
+      <label for="markers">Markers</label>
+
+      <input id="heatmap" type="radio" name="layer" value="Heatmap" class="custom-input"></input>
+      <label for="heatmap">Heatmap</label>
     </div>
 
   </div>

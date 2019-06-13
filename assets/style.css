@@ -1,0 +1,59 @@
+html, body {
+  height: 100vh;
+  margin: 0;
+}
+
+.option-title {
+  margin: 8px 0 12px;
+}
+
+.custom-input {
+  opacity: 0;
+  position: absolute;
+}
+
+#mapid {
+  height: 100%;
+}
+
+label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+label:before {
+  content: "";
+  margin-right: 10px;
+  background: #fff;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 2px solid orange;
+}
+
+label:hover::before {
+  background: orange;
+}
+
+.control-panel {
+  padding: 0.5rem;
+  background: #fff;
+  height: 200px;
+  width: 150px;
+  z-index: 9999;
+  position: fixed;
+  top: 6rem;
+  left: 2rem;
+  box-shadow: 1px 1px 1px #000;
+}
+
+.control-panel > div {
+  margin-bottom: 1rem;
+}
+
+.custom-input:checked + label:before {
+  background: orange;
+}
