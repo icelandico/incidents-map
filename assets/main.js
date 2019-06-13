@@ -1,12 +1,11 @@
 const mapCenter = [44.94, -93.31]
 const mapTiles = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-const mapZoom = 13
 
-const myMap = L.map("mapid").setView(mapCenter, mapZoom)
+const myMap = L.map("mapid").setView(mapCenter, data.mapZoom)
 
 L.tileLayer(mapTiles, {
   maxZoom: 19,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">Stop Violence Uptown <> OpenStreetMap</a> contributors'
+  attribution: data.mapAttribution
 }).addTo(myMap)
 
 const request = async () => {
