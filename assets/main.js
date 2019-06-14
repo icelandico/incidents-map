@@ -1,15 +1,13 @@
 const mapCenter = [44.94, -93.31]
-const mapTiles = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-
 const myMap = L.map("mapid").setView(mapCenter, data.mapZoom)
 
-L.tileLayer(mapTiles, {
+L.tileLayer(data.mapTiles, {
   maxZoom: 19,
   attribution: data.mapAttribution
 }).addTo(myMap)
 
 const request = async () => {
-  const response = await fetch('https://opendata.arcgis.com/datasets/58e6f399e0f04c568b3ba45086d15818_0.geojson')
+  const response = await fetch(data.data2018)
     .then(res => res.json())
   return response
 }
@@ -48,7 +46,7 @@ function generateHeatmap(data) {
 
 function filterPrecinct(incidents) {
   const precinct = "05"
-  const filtered = incidents.filter(i => i.properties.Precinct === precinct)
+  const filtered = incidents.filter(i => i.properties.Precinct.includes("5"))
   return filtered
 }
 
