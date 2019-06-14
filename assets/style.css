@@ -64,7 +64,7 @@ label:hover::before {
   z-index: 9999;
   position: fixed;
   top: 6rem;
-  left: 2rem;
+  left: 10px;
   box-shadow: 1px 1px 1px #000;
 }
 
