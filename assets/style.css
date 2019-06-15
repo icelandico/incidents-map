@@ -31,7 +31,7 @@ label:before {
   height: 20px;
   display: inline-block;
   vertical-align: middle;
-  border: 2px solid orange;
+  border: 2px solid #FF8C00;
 }
 
 .custom-input:checked + label:after {
@@ -53,7 +53,7 @@ label:before {
 }
 
 label:hover::before {
-  background: orange;
+  background: #FF8C00;
 }
 
 .control-panel {
@@ -68,10 +68,53 @@ label:hover::before {
   box-shadow: 1px 1px 1px #000;
 }
 
+.info-box {
+  padding: 0.5rem;
+  background: #fff;
+  height: 75px;
+  width: 550px;
+  z-index: 9999;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  box-shadow: 1px 1px 1px #000;
+}
+
 .control-panel > div {
   margin-bottom: 1rem;
 }
 
 .custom-input:checked + label:before {
-  background: orange;
+  background: #FF8C00;
+}
+
+.info-mail {
+  text-decoration: none;
+  color: #FF8C00;
+  cursor: pointer;
+  transition: 0.2s all;
+  display: inline-block;
+  position: relative;
+}
+
+.info-mail:before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  background: #FF8C00;;
+  height: 2px;
+  transition: 0.2s;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(0,1);
+	transform: scale(0,1);
+}
+
+.info-mail:hover:before {
+  opacity: 1;
+  -webkit-transform: scale(1);
+	transform: scale(1);
 }

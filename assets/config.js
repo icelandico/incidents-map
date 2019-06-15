@@ -4,6 +4,6 @@ const data = {
   mapZoom: 13,
   mapTiles: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.png",
   mapCenter: [44.94, -93.31],
-  mapAttribution: `&copy; <a href="https://www.openstreetmap.org/copyright">Stop Violence Uptown <> OpenStreetMap</a> contributors`
+  mapAttribution: `&copy; <a href="https://www.openstreetmap.org/copyright">Stop Violence Uptown, OpenStreetMap</a> contributors`
 }
 
