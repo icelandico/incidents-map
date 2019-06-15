@@ -86,8 +86,12 @@ function placeMarker(coordinates, properties) {
   if (coordinates.includes(null, 0)) {
     return null
   } else {
-    L.marker([coordinates[1], coordinates[0]]).bindPopup(content).openPopup().addTo(layerGroup)
+    insertMarker(coordinates, content)
   }
+}
+
+function insertMarker(coordinates, content) {
+  L.marker([coordinates[1], coordinates[0]]).bindPopup(content).openPopup().addTo(layerGroup)
 }
 
 // Return date in format { year, month, day } or YYYY-MM-DD
