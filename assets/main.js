@@ -106,11 +106,16 @@ function generateHeatmap(data) {
   L.heatLayer(data, { radius: 20 }).addTo(layerGroup)
 }
 
-const input = document.querySelectorAll("label")
 const layerInput = document.querySelectorAll("label.layer")
+const yearInput = document.querySelectorAll("label.year")
 
 layerInput.forEach(el => el.addEventListener("click", function () {
   mapSet.layer = el.getAttribute("for")
+  request().then(e => drawLayer(e))
+}))
+
+yearInput.forEach(el => el.addEventListener("click", function () {
+  mapSet.data = el.getAttribute("for")
   request().then(e => drawLayer(e))
 }))
 
