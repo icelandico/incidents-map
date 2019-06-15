@@ -99,7 +99,7 @@ function formatDate(text) {
 
 
 function generateHeatmap(data) {
-  L.heatLayer(data, { radius: 20 }).addTo(myMap)
+  L.heatLayer(data, { radius: 20 }).addTo(layerGroup)
 }
 
 const input = document.querySelectorAll("label")
