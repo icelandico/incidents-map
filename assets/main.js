@@ -6,10 +6,28 @@ L.tileLayer(data.mapTiles, {
   attribution: data.mapAttribution
 }).addTo(myMap)
 
+const mapSet = {
+  data: "2019",
+  layer: "markers"
+}
+
 const request = async () => {
-  const response = await fetch(data.data2018)
+  const data = determineData()
+  const response = await fetch(data)
     .then(res => res.json())
   return response
+}
+
+function determineData() {
+  const set = mapSet.data
+  switch (set) {
+    case "2018":
+      return data.data2018
+    case "2019":
+      return data.data2019
+    default:
+      return data.data2018
+  }
 }
 
 function drawMarkers(d) {
