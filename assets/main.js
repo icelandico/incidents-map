@@ -1,5 +1,6 @@
 const mapCenter = [44.94, -93.31]
 const myMap = L.map("mapid").setView(mapCenter, data.mapZoom)
+const layerGroup = L.layerGroup().addTo(myMap)
 
 L.tileLayer(data.mapTiles, {
   maxZoom: 19,
@@ -67,11 +68,14 @@ function changeCase(array) {
 
 function drawMarkers(d) {
   const pointsFiltered = filterData(d)
-  const coordinatesOnly = pointsFiltered.map(el => [el.geometry.coordinates[1], el.geometry.coordinates[0]])
+  layerGroup.clearLayers()
   pointsFiltered.map(e => placeMarker(e.geometry.coordinates, e.properties))
 }
 
 function drawHeatmap(d) {
+  layerGroup.clearLayers()
+  const pointsFiltered = filterData(d)
+  const coordinatesOnly = pointsFiltered.map(el => [el.geometry.coordinates[1], el.geometry.coordinates[0]])
   generateHeatmap(coordinatesOnly)
 }
 
@@ -82,7 +86,7 @@ function placeMarker(coordinates, properties) {
   if (coordinates.includes(null, 0)) {
     return null
   } else {
-    L.marker([coordinates[1], coordinates[0]]).bindPopup(content).openPopup().addTo(myMap)
+    L.marker([coordinates[1], coordinates[0]]).bindPopup(content).openPopup().addTo(layerGroup)
   }
 }
 
@@ -99,9 +103,11 @@ function generateHeatmap(data) {
 }
 
 const input = document.querySelectorAll("label")
+const layerInput = document.querySelectorAll("label.layer")
 
-input.forEach(el => el.addEventListener("click", function () {
-  console.log(el.getAttribute("for"))
+layerInput.forEach(el => el.addEventListener("click", function () {
+  mapSet.layer = el.getAttribute("for")
+  request().then(e => drawLayer(e))
 }))
 
 request().then(e => drawLayer(e))
