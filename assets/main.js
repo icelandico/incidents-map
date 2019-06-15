@@ -16,8 +16,8 @@ function drawMarkers(d) {
   const points = d.features
   const pointsFiltered = filterPrecinct(points)
   const coordinatesOnly = pointsFiltered.map(el => [el.geometry.coordinates[1], el.geometry.coordinates[0]])
-  generateHeatmap(coordinatesOnly)
-  // pointsFiltered.map(e => placeMarker(e.geometry.coordinates, e.properties))
+  // generateHeatmap(coordinatesOnly)
+  pointsFiltered.map(e => placeMarker(e.geometry.coordinates, e.properties))
 }
 
 function placeMarker(coordinates, properties) {
@@ -45,15 +45,30 @@ function generateHeatmap(data) {
 
 
 function filterPrecinct(incidents) {
-  const precinct = "05"
+  const precinct = "5"
   const filtered = incidents.filter(i => i.properties.Precinct.includes("5"))
   return filtered
 }
 
-request().then(e => drawMarkers(e))
+function changeCase(array) {
+  const incidents = array.map((p, i) => {
+    const keys = Object.keys(p.properties)
+    let idx = keys.length
+    const newProps = {}
+    while (idx--) {
+      let key = keys[idx]
+      newProps[key.toLowerCase()] = p.properties[key]
+    }
+    return { ...p, properties: newProps }
+  }
+  )
+  return incidents
+}
 
 const input = document.querySelectorAll("label")
 
 input.forEach(el => el.addEventListener("click", function () {
   console.log(el.getAttribute("for"))
 }))
+
+request().then(e => drawMarkers(e))
