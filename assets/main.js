@@ -16,6 +16,7 @@ const request = async () => {
   const data = determineData()
   const response = await fetch(data)
     .then(res => res.json())
+    .catch(e => alert("Something went wrong with the data provider. Please try again to select the layer"))
   return response
 }
 
