@@ -57,27 +57,23 @@ label:hover::before {
 }
 
 .control-panel {
+  height: 225px;
+  top: 6rem;
+  width: 150px;
+}
+
+.content-box {
   padding: 0.5rem;
   background: #fff;
-  height: 225px;
-  width: 150px;
   z-index: 9999;
   position: fixed;
-  top: 6rem;
-  left: 10px;
   box-shadow: 1px 1px 1px #000;
+  left: 10px;
 }
 
 .info-box {
-  padding: 0.5rem;
-  background: #fff;
-  height: 75px;
-  width: 550px;
-  z-index: 9999;
-  position: fixed;
   bottom: 10px;
-  left: 10px;
-  box-shadow: 1px 1px 1px #000;
+  width: 550px;
 }
 
 .control-panel > div {
@@ -117,4 +113,33 @@ label:hover::before {
   opacity: 1;
   -webkit-transform: scale(1);
 	transform: scale(1);
+}
+
+@media screen and (max-width: 768px) {
+
+  .content-box {
+    padding: 5px;
+    background: #fff;
+    z-index: 9999;
+    position: fixed;
+    box-shadow: 1px 1px 1px #000;
+  }
+
+  .control-panel {
+    height: 125px;
+    top: 10px;
+    width: 80%;
+    right: 10px;
+    left: unset;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+
+  .info-box {
+    bottom: 20px;
+    width: 100%;
+    font-size: 10px;
+    left: 0;
+  }
 }
