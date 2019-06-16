@@ -1,5 +1,4 @@
-const mapCenter = [44.94, -93.31]
-const myMap = L.map("mapid").setView(mapCenter, data.mapZoom)
+const myMap = L.map("mapid").setView(data.mapCenter, data.mapZoom)
 const layerGroup = L.layerGroup().addTo(myMap)
 
 L.tileLayer(data.mapTiles, {
