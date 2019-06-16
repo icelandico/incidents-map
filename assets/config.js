@@ -1,4 +1,5 @@
 const data = {
+  data2017: "https://opendata.arcgis.com/datasets/3d33a4f94a004fb5816936708642e045_0.geojson",
   data2018: "https://opendata.arcgis.com/datasets/58e6f399e0f04c568b3ba45086d15818_0.geojson",
   data2019: "https://opendata.arcgis.com/datasets/8cd15449ac344aa5a55be7840d67c52d_0.geojson",
   mapZoom: 13,

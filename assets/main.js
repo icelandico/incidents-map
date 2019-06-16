@@ -8,7 +8,7 @@ L.tileLayer(data.mapTiles, {
 }).addTo(myMap)
 
 const mapSet = {
-  data: "2018",
+  data: "2019",
   layer: "markers"
 }
 
@@ -22,12 +22,14 @@ const request = async () => {
 function determineData() {
   const set = mapSet.data
   switch (set) {
+    case "2017":
+      return data.data2017
     case "2018":
       return data.data2018
     case "2019":
       return data.data2019
     default:
-      return data.data2018
+      return data.data2019
   }
 }
 
@@ -45,7 +47,7 @@ function drawLayer(e) {
 function filterData(incidents) {
   const points = changeCase(incidents.features)
   const precinct = "5"
-  const pointsFiltered = points.filter(i => i.properties.precinct.includes(precinct))
+  const pointsFiltered = points.filter(i => i.properties.precinct !== null && i.properties.precinct.includes(precinct)) //i.properties.precinct.includes(precinct) ))
   return pointsFiltered
 }
 
