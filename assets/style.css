@@ -115,6 +115,20 @@ label:hover::before {
 	transform: scale(1);
 }
 
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: #FF8C00;
+  z-index: 9999;
+}
+
+.hide {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
 
   .content-box {
