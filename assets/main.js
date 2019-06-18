@@ -22,8 +22,6 @@ const request = async () => {
 function determineData() {
   const set = mapSet.data
   switch (set) {
-    case "2017":
-      return data.data2017
     case "2018":
       return data.data2018
     case "2019":
