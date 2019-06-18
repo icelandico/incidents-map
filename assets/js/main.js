@@ -12,6 +12,7 @@ const mapSet = {
 }
 
 const request = async () => {
+  layerGroup.clearLayers()
   const data = determineData()
   const response = await fetch(data)
     .then(res => res.json())
