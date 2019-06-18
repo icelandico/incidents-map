@@ -32,8 +32,7 @@ function determineData() {
 }
 
 function drawLayer(e) {
-  const loader = document.querySelector(".loader")
-  loader.classList.add("hide")
+  hideLoader()
   const { layer } = mapSet
   switch (layer) {
     case "markers":
@@ -112,17 +111,25 @@ const layerInput = document.querySelectorAll("label.layer")
 const yearInput = document.querySelectorAll("label.year")
 
 layerInput.forEach(el => el.addEventListener("click", function () {
-  const loader = document.querySelector(".loader")
-  loader.classList.remove("hide")
+  showLoader()
   mapSet.layer = el.getAttribute("for")
   request().then(e => drawLayer(e))
 }))
 
 yearInput.forEach(el => el.addEventListener("click", function () {
-  const loader = document.querySelector(".loader")
-  loader.classList.remove("hide")
+  showLoader()
   mapSet.data = el.getAttribute("for")
   request().then(e => drawLayer(e))
 }))
+
+function showLoader() {
+  const loader = document.querySelector(".loader")
+  loader.classList.remove("hide")
+}
+
+function hideLoader() {
+  const loader = document.querySelector(".loader")
+  loader.classList.add("hide")
+}
 
 request().then(e => drawLayer(e))
