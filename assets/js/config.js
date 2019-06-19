@@ -5,7 +5,7 @@ const data = {
   mapZoom: adjustZoom(),
   mapTiles: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
   mapCenter: adjustCoordinates(),
-  mapAttribution: `Stop Violence, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
+  mapAttribution: `Stop Violence, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap </a>Created by <a href="http://michalmuszynski.com" target="_blank">Michal Muszynski </a> & OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
 }
 
 function adjustZoom() {
